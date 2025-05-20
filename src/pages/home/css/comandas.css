@@ -1,0 +1,90 @@
+.component.comandas {
+
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        align-self: center;
+        width: 100%;
+        max-width: 500px;
+        padding: 10px 20px;
+        border-radius: 5px;
+        background-color: white;
+        box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.229);
+
+        h2 {
+            font-weight: 400;
+            color: rgb(184, 0, 0);
+        }
+
+        .inputs {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            width: 100%;
+            margin-block: 10px;
+
+            div {
+                display: flex;
+                flex-direction: column;
+                gap: 3px;
+
+                label {
+                    font-size: .8rem;
+                }
+
+                input {
+                    font-size: 1rem;
+                    padding: 10px;
+                    border: solid 2px red;
+                    --border-c: blue;
+                }
+            }
+        }
+
+        nav {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 10px;
+            width: 100%;
+
+            button {
+                padding: 10px;
+                font-size: .8rem;
+                font-weight: 500;
+                background-color: red;
+                color: white;
+                --back: blue;
+                --color: white;
+            }
+        }
+    }
+
+    .list {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 20px;
+
+        .item {
+            background-color: white;
+            box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.22);
+            padding: 10px;
+            border-radius: 5px;
+
+            &[state] {
+                color: red;
+            }
+
+            h3{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            span {
+                font-size: .8rem;
+            }
+        }
+    }
+}

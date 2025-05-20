@@ -1,0 +1,196 @@
+.modal.comanda {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.267);
+    backdrop-filter: blur(1px);
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.275);
+        width: 100%;
+        max-width: 500px;
+        padding: 10px;
+        gap: 10px;
+        border-radius: 5px;
+        animation: var(--show-top);
+        overflow: hidden;
+
+        .head {
+            display: flex;
+            flex-direction: column;
+            padding-bottom: 10px;
+            border-bottom: solid 3px orangered;
+
+            h3 {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            span {
+                font-size: .9rem;
+                font-weight: 500;
+            }
+        }
+
+        nav {
+            display: flex;
+            justify-content: flex-end;
+
+            button {
+                font-size: .7em;
+                padding: 5px;
+                background-color: orangered;
+                color: white;
+                align-self: flex-end;
+                --back: red;
+                --color: white;
+            }
+        }
+
+        .list {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            min-height: 120px;
+
+            h3 {
+                font-size: .9rem;
+                color: red;
+                align-self: center;
+                margin-block: 30px;
+                animation: var(--show-down);
+            }
+
+            .item {
+                position: relative;
+                display: flex;
+                align-items: center;
+                background-color: rgb(240, 240, 240);
+                font-size: .8rem;
+                padding: 5px;
+                border-radius: 3px;
+                animation: var(--show-down);
+
+                svg {
+                    position: absolute;
+                    right: 10px;
+                }
+            }
+        }
+
+        .conclude-btn {
+            padding: 10px;
+            background-color: orangered;
+            color: white;
+            align-self: flex-end;
+            gap: 20px;
+            --back: red;
+            --color: white;
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .modal.comanda {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(0, 0, 0, 0.267);
+        backdrop-filter: blur(1px);
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background-color: white;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.275);
+            width: 100%;
+            height: 100%;
+            max-width: 500px;
+            padding: 10px;
+            gap: 10px;
+            border-radius: 0px;
+            animation: none;
+            overflow: hidden;
+
+            .head {
+                display: flex;
+                flex-direction: column;
+                padding-bottom: 10px;
+                border-bottom: solid 3px orangered;
+
+                h3 {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                }
+
+                span {
+                    font-size: .9rem;
+                    font-weight: 500;
+                }
+            }
+
+            nav {
+                display: flex;
+                justify-content: flex-end;
+
+                button {
+                    font-size: .7em;
+                    padding: 5px;
+                    background-color: orangered;
+                    color: white;
+                    align-self: flex-end;
+                    --back: red;
+                    --color: white;
+                }
+            }
+
+            .list {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+                height: 100%;
+                overflow: auto;
+
+                h3 {
+                    font-size: .9rem;
+                    color: red;
+                    align-self: center;
+                    margin-block: 30px;
+                    animation: var(--show-down);
+                }
+
+                .item {
+                    position: relative;
+                    display: flex;
+                    align-items: center;
+                    background-color: rgb(240, 240, 240);
+                    font-size: .8rem;
+                    padding: 5px;
+                    border-radius: 3px;
+                    animation: var(--show-down);
+
+                    svg {
+                        position: absolute;
+                        right: 10px;
+                    }
+                }
+            }
+
+            .conclude-btn {
+                padding: 10px;
+                background-color: orangered;
+                color: white;
+                align-self: flex-end;
+                gap: 20px;
+                --back: red;
+                --color: white;
+            }
+        }
+    }
+}

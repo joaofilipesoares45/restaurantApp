@@ -8,7 +8,7 @@
   box-sizing: border-box;
   user-select: none;
   scroll-behavior: smooth;
-  font-family: "Inter Sans", sans-serif !important;
+  font-family: "Noto Sans", sans-serif !important;
 }
 
 /* :root {
@@ -79,7 +79,7 @@ button {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: rgba(10, 100, 236, 0.515);
+  background-color: rgba(236, 10, 10, 0.515);
   border-radius: 10px;
 
 }

@@ -1,0 +1,57 @@
+.component.cardapio {
+    h2 {
+        color: orangered;
+        border-bottom: solid 3px orangered;
+        margin-bottom: 20px;
+    }
+
+    .list-contain {
+        display: grid;
+        flex-wrap: wrap;
+        gap: 10px;
+        overflow-y: auto;
+
+        .sub-title {
+            max-width: 100%;
+            padding: 10px;
+            background-color: white;
+            height: fit-content;
+
+            h3 {
+                border-bottom: solid 2px;
+                margin-bottom: 5px;
+            }
+
+            .list {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+
+                .item {
+                    border-bottom: solid 2px gainsboro;
+                    padding-bottom: 10px;
+                    .info {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        gap: 20px;
+
+                        h4 {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: space-between;
+                            font-size: 1rem;
+
+                            p {
+                                font-weight: 400;
+                                font-size: .8rem;
+                                max-width: 400px;
+                            }
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+}
