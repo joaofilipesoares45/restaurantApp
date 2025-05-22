@@ -65,6 +65,7 @@
         display: flex;
         flex-wrap: wrap;
         margin-top: 20px;
+        gap: 10px;
 
         .item {
             background-color: white;

@@ -4,7 +4,7 @@ import "../css/comandas.css"
 import { DataContext } from "../../../context/DataContext";
 export default function Comandas() {
 
-    const {comandas} = useContext(DataContext)
+    const { comandas } = useContext(DataContext)
 
     const submit = (event) => {
         event.preventDefault()
@@ -29,14 +29,14 @@ export default function Comandas() {
 
             <div className="list">
                 {comandas.map((item, index) => {
-                    const {id, mesa, total, pratos, status} = item
-                     return (
-                        <div className="item" key={"fasfd"+index} state={String(status)}>
+                    const { id, mesa, total, pratos, status } = item
+                    return (
+                        <div className="item" key={"fasfd" + index} state={String(status)}>
                             <h3>id: {id} <p>{numberForBrl(total)}</p></h3>
                             <h4>mesa: {mesa}</h4>
                             <span>
-                                {pratos.map(({nome}, index) =>{
-                                    return index < (pratos.length - 1) ? `${nome}, `: nome
+                                {pratos.map(({ nome }, index) => {
+                                    return index < (pratos.length - 1) ? `${nome}, ` : nome
                                 })}
                             </span>
                         </div>
