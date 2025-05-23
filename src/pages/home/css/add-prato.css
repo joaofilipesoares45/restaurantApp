@@ -1,7 +1,6 @@
 .modal.add-prato {
     display: flex;
     justify-content: flex-end;
-    pointer-events: none;
 
     .content {
         border-radius: 0px;
@@ -9,7 +8,6 @@
         padding: 0px;
         gap: 0px;
         max-width: 450px;
-        pointer-events: all;
 
         .head {
             position: sticky;

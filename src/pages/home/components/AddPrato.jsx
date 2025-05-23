@@ -50,7 +50,7 @@ const cardapio = {
 };
 
 export default function AddPrato() {
-    const { comanda, comandas, setComandas } = useContext(DataContext)
+    const { comanda, setComandas } = useContext(DataContext)
 
     const search = ({ target }) => {
         const value = target.value
@@ -76,7 +76,7 @@ export default function AddPrato() {
             newItem.total += preco
         })
 
-        setComandas([...comandas, newItem])
+        setComandas([newItem])
     }
 
     const hadleRemove = (index) => {
@@ -86,9 +86,9 @@ export default function AddPrato() {
         newItem.pratos.forEach(({ preco }) => {
             newItem.total += preco
         })
-        setComandas([...comandas, newItem])
+        setComandas([newItem])
     }
-    
+
     return (
         <div className="modal add-prato">
             <div className="content">
@@ -96,7 +96,7 @@ export default function AddPrato() {
                     <div className="search-div">
                         <input type="text" placeholder="Nome do prato..." onKeyUp={search} />
                         <nav>
-                            {comanda.pratos.length > 0 &&<FontAwesomeIcon icon={faList} onClick={({ target }) => {
+                            {comanda.pratos.length > 0 && <FontAwesomeIcon icon={faList} onClick={({ target }) => {
                                 if (target.tagName !== "svg") return
                                 target.parentElement.parentElement.parentElement.querySelector(".list").setAttribute("open", "")
                             }} />}

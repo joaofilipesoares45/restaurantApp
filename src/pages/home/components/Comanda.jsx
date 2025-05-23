@@ -7,7 +7,7 @@ import { closeModal, numberForBrl, openModal } from "../../../utils/functions"
 import AddPrato from "./AddPrato"
 
 export default function Comanda() {
-    const { comanda, setComanda, comandas, setComandas } = useContext(DataContext)
+    const { comanda, setComanda, setComandas } = useContext(DataContext)
 
     const hadleRemoveItem = (index) => {
         const newItem = comanda
@@ -16,7 +16,7 @@ export default function Comanda() {
         newItem.pratos.forEach(({ preco }) => {
             newItem.total += preco
         })
-        setComandas([...comandas, newItem])
+        setComandas([newItem])
     }
 
     return (
