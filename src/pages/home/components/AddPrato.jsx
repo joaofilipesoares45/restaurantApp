@@ -1,9 +1,9 @@
-import { faCheck, faList, faPlus, faTrashAlt, faXmark } from "@fortawesome/free-solid-svg-icons"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import "../css/add-prato.css"
-import { useContext, useState } from "react";
-import { closeModal, numberForBrl } from "../../../utils/functions";
+import { faList, faPlus, faTrashAlt, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useContext } from "react";
 import { DataContext } from "../../../context/DataContext";
+import { closeModal, numberForBrl } from "../../../utils/functions";
+import "../css/add-prato.css";
 
 const cardapio = {
     Entradas: [
@@ -52,8 +52,6 @@ const cardapio = {
 export default function AddPrato() {
     const { comanda, comandas, setComandas } = useContext(DataContext)
 
-    const [prevList, setPrevList] = useState(comanda.pratos)
-
     const search = ({ target }) => {
         const value = target.value
 
@@ -70,19 +68,27 @@ export default function AddPrato() {
         }
     }
 
-    const handleConclude = () => {
+    const handleAdd = (item) => {
         const newItem = comanda
-        newItem.pratos = prevList
+        newItem.pratos.push(item)
         newItem.total = 0
         newItem.pratos.forEach(({ preco }) => {
             newItem.total += preco
         })
 
         setComandas([...comandas, newItem])
-        setPrevList(newItem.pratos)
-        closeModal("add-prato")
     }
 
+    const hadleRemove = (index) => {
+        const newItem = comanda
+        newItem.pratos = newItem.pratos.filter((_, i) => i !== index)
+        newItem.total = 0
+        newItem.pratos.forEach(({ preco }) => {
+            newItem.total += preco
+        })
+        setComandas([...comandas, newItem])
+    }
+    
     return (
         <div className="modal add-prato">
             <div className="content">
@@ -90,30 +96,28 @@ export default function AddPrato() {
                     <div className="search-div">
                         <input type="text" placeholder="Nome do prato..." onKeyUp={search} />
                         <nav>
-                            <FontAwesomeIcon icon={faList} onClick={({ target }) => {
+                            {comanda.pratos.length > 0 &&<FontAwesomeIcon icon={faList} onClick={({ target }) => {
                                 if (target.tagName !== "svg") return
                                 target.parentElement.parentElement.parentElement.querySelector(".list").setAttribute("open", "")
-                            }} />
-                            {prevList.length > 0 ? <FontAwesomeIcon icon={faCheck} onClick={handleConclude} /> : <FontAwesomeIcon icon={faXmark} onClick={() => closeModal("add-prato")} />}
+                            }} />}
+                            <FontAwesomeIcon icon={faXmark} onClick={() => closeModal("add-prato")} />
                         </nav>
                     </div>
-                    <div className="list">
-                        <h3>Adicionado <FontAwesomeIcon icon={faXmark} onClick={({ target }) => {
-                            if (target.tagName !== "svg") return
-                            target.parentElement.parentElement.removeAttribute("open")
-                        }} /></h3>
-                        {prevList.map((item, index) => {
-                            return (
-                                <div className="item" key={"ll" + index}>
-                                    <p>{item.nome}</p>
-                                    <FontAwesomeIcon icon={faTrashAlt} onClick={() => {
-                                        const newList = prevList.filter((_, i) => i !== index)
-                                        setPrevList(newList)
-                                    }} />
-                                </div>
-                            )
-                        })}
-                    </div>
+                    {comanda.pratos.length > 0 &&
+                        <div className="list">
+                            <h3>Adicionado <FontAwesomeIcon icon={faXmark} onClick={({ target }) => {
+                                if (target.tagName !== "svg") return
+                                target.parentElement.parentElement.removeAttribute("open")
+                            }} /></h3>
+                            {comanda.pratos.map((item, index) => {
+                                return (
+                                    <div className="item" key={"ll" + index}>
+                                        <p>{item.nome}</p>
+                                        <FontAwesomeIcon icon={faTrashAlt} onClick={() => hadleRemove(index)} />
+                                    </div>
+                                )
+                            })}
+                        </div>}
                 </div>
                 <div className="list">
                     {Object.keys(cardapio).map(key => {
@@ -128,7 +132,7 @@ export default function AddPrato() {
                                             <div className="info">
                                                 <h4>{nome} <span>{numberForBrl(preco)}</span></h4>
                                             </div>
-                                            <FontAwesomeIcon icon={faPlus} onClick={() => { setPrevList([...prevList, item]) }} />
+                                            <FontAwesomeIcon icon={faPlus} onClick={() => { handleAdd(item) }} />
                                         </div>
                                     )
                                 })}

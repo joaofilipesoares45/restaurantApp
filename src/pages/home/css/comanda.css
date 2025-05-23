@@ -146,19 +146,14 @@
                 }
             }
 
-            nav {
-                display: flex;
-                justify-content: flex-end;
-
-                button {
-                    font-size: .7em;
-                    padding: 5px;
-                    background-color: orangered;
-                    color: white;
-                    align-self: flex-end;
-                    --back: red;
-                    --color: white;
-                }
+            button.add-btn {
+                font-size: .7em;
+                padding: 5px;
+                background-color: orangered;
+                color: white;
+                align-self: flex-end;
+                --back: red;
+                --color: white;
             }
 
             .list {
