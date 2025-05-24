@@ -95,7 +95,7 @@ export default function AddPrato() {
                 <div className="head">
                     <div className="search-div">
                         <input type="text" placeholder="Nome do prato..." onKeyUp={search} />
-                        <nav>
+                        <nav len={comanda.pratos.length > 0 ? comanda.pratos.length : "false"}>
                             {comanda.pratos.length > 0 && <FontAwesomeIcon icon={faList} onClick={({ target }) => {
                                 if (target.tagName !== "svg") return
                                 target.parentElement.parentElement.parentElement.querySelector(".list").setAttribute("open", "")
@@ -105,14 +105,14 @@ export default function AddPrato() {
                     </div>
                     {comanda.pratos.length > 0 &&
                         <div className="list">
-                            <h3>Adicionado <FontAwesomeIcon icon={faXmark} onClick={({ target }) => {
+                            <h3>Adicionado a comanda <FontAwesomeIcon icon={faXmark} onClick={({ target }) => {
                                 if (target.tagName !== "svg") return
                                 target.parentElement.parentElement.removeAttribute("open")
                             }} /></h3>
                             {comanda.pratos.map((item, index) => {
                                 return (
                                     <div className="item" key={"ll" + index}>
-                                        <p>{item.nome}</p>
+                                        <p>{item.nome} <span>{numberForBrl(item.preco)}</span></p>
                                         <FontAwesomeIcon icon={faTrashAlt} onClick={() => hadleRemove(index)} />
                                     </div>
                                 )

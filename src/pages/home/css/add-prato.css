@@ -25,16 +25,17 @@
 
                 input {
                     width: 100%;
-                    padding: 5px;
+                    padding: 10px;
                     background-color: rgb(255, 100, 100);
                     color: white;
                     font-size: .9rem;
 
                     &::placeholder {
                         color: white;
+                        font-style: normal;
                     }
 
-                    &:focus{
+                    &:focus {
                         background-color: rgb(210, 39, 0);
                     }
                 }
@@ -42,6 +43,35 @@
                 nav {
                     display: flex;
                     gap: 10px;
+                    position: relative;
+
+                    &::after {
+                        content: attr(len);
+                        position: absolute;
+                        top: -10.5px;
+                        left: -3px;
+                        background-color: red;
+                        color: white;
+                        font-size: .6rem;
+                        padding: 0px 4px;
+                        border-radius: 50%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        pointer-events: none;
+                    }
+
+                    &[len=false]::after {
+                        display: none;
+                    }
+
+                    svg {
+                        font-size: 1.2rem;
+                        
+                        &.fa-list {
+                            margin-left: 10px;
+                        }
+                    }
                 }
             }
 
@@ -72,7 +102,10 @@
                     display: flex;
                     justify-content: space-between;
                     margin-block: 0px;
+                    padding-bottom: 10px;
                     margin-bottom: 10px;
+                    font-size: 1.1rem;
+                    border-bottom: solid 3px orangered;
 
                     svg {
                         font-size: 1.2rem;
@@ -83,6 +116,8 @@
                     background-color: rgb(240, 240, 240);
                     padding: 5px;
                     text-wrap: nowrap;
+                    display: flex;
+                    flex-direction: column;
                 }
             }
         }
@@ -90,6 +125,7 @@
         .list {
             padding: 0px 10px;
             max-height: 100vh;
+            padding-bottom: 80px;
 
             .sub-list {
                 display: grid;
