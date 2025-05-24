@@ -107,7 +107,7 @@
 
 @media screen and (max-width: 500px) {
     .modal.comanda {
-        display: flex;
+        display: initial;
         align-items: center;
         justify-content: center;
         background-color: rgba(0, 0, 0, 0.267);
@@ -126,7 +126,7 @@
             gap: 10px;
             border-radius: 0px;
             animation: none;
-            overflow: hidden;
+            overflow-y: auto;
 
             .head {
                 display: flex;
