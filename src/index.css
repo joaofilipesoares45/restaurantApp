@@ -243,6 +243,27 @@ input[type=date]::-webkit-calendar-picker-indicator {
     min-height: 100dvh !important;
     overflow-x: hidden !important;
   }
+
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    width: 100dvw;
+    height: 100dvh;
+    min-width: 100dvw !important;
+    min-height: 100dvh !important;
+    transition: .3s, top 0s !important;
+    transition-delay: .3s;
+    pointer-events: none;
+    opacity: 0;
+
+    &[open] {
+      opacity: 1;
+      pointer-events: all;
+      scale: 1;
+    }
+  }
 }
 
 .modal {
